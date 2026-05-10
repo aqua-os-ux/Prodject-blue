@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Home TV</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Product Sans',sans-serif;
+}
+
+body{
+    background:#000;
+    color:white;
+}
+
+/* BACKGROUND */
+.hero-bg{
+    position:fixed;
+    inset:0;
+    background:url('https://i.postimg.cc/1XmHVwCD/IMG-3451.jpg');
+    background-size:cover;
+    background-position:center;
+    z-index:-2;
+}
+
+.hero-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.55);
+    z-index:-1;
+}
+
+/* TIME TOP LEFT WITH SPACE */
+.top-time{
+    position:fixed;
+    top:6px;
+    left:12px;
+    z-index:30;
+    font-size:14px;
+    font-weight:700;
+    color:white;
+    opacity:0.9;
+}
+
+/* TOP BAR */
+.top-bar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100px;
+    z-index:10;
+    background:rgba(20,20,22,0.35);
+    backdrop-filter:blur(18px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.search-box{
+    width:55%;
+    display:flex;
+    align-items:center;
+    background:rgba(255,255,255,0.08);
+    border-radius:999px;
+    padding:10px 14px;
+}
+
+.search-box input{
+    flex:1;
+    background:transparent;
+    border:none;
+    outline:none;
+    color:white;
+    font-size:16px;
+}
+
+.search-box button{
+    border:none;
+    background:#4285f4;
+    color:white;
+    padding:8px 14px;
+    border-radius:999px;
+}
+
+/* LIST */
+.list{
+    margin-top:110px;
+    padding:20px 40px;
+    height:calc(100vh - 110px);
+    overflow-y:auto;
+    position:relative;
+    z-index:5;
+}
+
+.item{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:18px;
+    border-radius:18px;
+    margin-bottom:14px;
+    background:rgba(255,255,255,0.05);
+    transition:0.2s;
+}
+
+.item:hover{
+    background:rgba(255,255,255,0.10);
+    transform:scale(1.01);
+}
+
+.icon{
+    width:70px;
+    height:70px;
+    border-radius:18px;
+    background:#1c1d22;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.icon img{
+    width:60%;
+    height:60%;
+    object-fit:contain;
+}
+
+.name{
+    font-size:20px;
+    font-weight:700;
+}
+
+.link{
+    text-decoration:none;
+    color:white;
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hero-bg"></div>
+<div class="hero-overlay"></div>
+
+<div class="top-time" id="time">--:--:--</div>
+
+<div class="top-bar">
+    <form class="search-box" onsubmit="search(event)">
+        <input id="q" placeholder="Search">
+        <button>Go</button>
+    </form>
+</div>
+
+<div class="list">
+
+<!-- STREAMING -->
+<a class="item link" href="https://youtube.com" target="_blank">
+<div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"></div>
+<div class="name">YouTube</div>
+</a>
+
+<a class="item link" href="https://netflix.com" target="_blank">
+<div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/5977/5977590.png"></div>
+<div class="name">Netflix</div>
+</a>
+
+<a class="item link" href="https://www.crunchyroll.com" target="_blank">
+<div class="icon"><img src="https://i.postimg.cc/PqTp6P2b/IMG-3441.png"></div>
+<div class="name">Crunchyroll</div>
+</a>
+
+<a class="item link" href="https://tv.apple.com" target="_blank">
+<div class="icon"><img src="https://i.postimg.cc/vHn4bWKP/IMG-3442.png"></div>
+<div class="name">Apple TV</div>
+</a>
+
+<a class="item link" href="https://www.hulu.com" target="_blank">
+<div class="icon"><img src="https://i.postimg.cc/1zvtJMg8/IMG-3443.png"></div>
+<div class="name">Hulu</div>
+</a>
+
+<a class="item link" href="https://www.paramountplus.com" target="_blank">
+<div class="icon"><img src="https://i.postimg.cc/zXhjL2vq/IMG-3444.png"></div>
+<div class="name">Paramount+</div>
+</a>
+
+<a class="item link" href="https://tubi.tv" target="_blank">
+<div class="icon"><img src="https://i.postimg.cc/V659zD2M/IMG-3445.png"></div>
+<div class="name">Tubi</div>
+</a>
+
+<a class="item link" href="https://www.peacocktv.com" target="_blank">
+<div class="icon"><img src="https://i.postimg.cc/bY70j0gc/IMG-3446.png"></div>
+<div class="name">Peacock</div>
+</a>
+
+<a class="item link" href="https://www.max.com" target="_blank">
+<div class="icon"><img src="https://i.postimg.cc/nhW1sKky/IMG-3432.png"></div>
+<div class="name">HBO Max</div>
+</a>
+
+<a class="item link" href="https://www.disneyplus.com" target="_blank">
+<div class="icon"><img src="https://i.postimg.cc/4yxNtc4N/IMG-3426.png"></div>
+<div class="name">Disney+</div>
+</a>
+
+<!-- SOCIAL -->
+<a class="item link" href="https://instagram.com" target="_blank">
+<div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"></div>
+<div class="name">Instagram</div>
+</a>
+
+<a class="item link" href="https://x.com" target="_blank">
+<div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968830.png"></div>
+<div class="name">X</div>
+</a>
+
+<a class="item link" href="https://reddit.com" target="_blank">
+<div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111589.png"></div>
+<div class="name">Reddit</div>
+</a>
+
+<a class="item link" href="https://discord.com" target="_blank">
+<div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png"></div>
+<div class="name">Discord</div>
+</a>
+
+<a class="item link" href="https://tiktok.com" target="_blank">
+<div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"></div>
+<div class="name">TikTok</div>
+</a>
+
+<!-- GOOGLE -->
+<a class="item link" href="https://docs.google.com" target="_blank">
+<div class="icon"><img src="https://i.postimg.cc/hj3NyQbF/IMG-3427.png"></div>
+<div class="name">Docs</div>
+</a>
+
+<a class="item link" href="https://slides.google.com" target="_blank">
+<div class="icon"><img src="https://i.postimg.cc/BvZqRDDw/IMG-3428.png"></div>
+<div class="name">Slides</div>
+</a>
+
+<a class="item link" href="https://drive.google.com" target="_blank">
+<div class="icon"><img src="https://i.postimg.cc/TwmH9NwF/IMG-3429.png"></div>
+<div class="name">Drive</div>
+</a>
+
+<a class="item link" href="https://maps.google.com" target="_blank">
+<div class="icon"><img src="https://i.postimg.cc/66FCw6MV/IMG-3430.png"></div>
+<div class="name">Maps</div>
+</a>
+
+<a class="item link" href="https://gemini.google.com" target="_blank">
+<div class="icon"><img src="https://i.postimg.cc/HkR2h0fT/IMG-3431.png"></div>
+<div class="name">Gemini</div>
+</a>
+
+<a class="item link" href="https://translate.google.com" target="_blank">
+<div class="icon"><img src="https://i.postimg.cc/6QkV590W/IMG-3438.png"></div>
+<div class="name">Translate</div>
+</a>
+
+<a class="item link" href="https://passwords.google.com" target="_blank">
+<div class="icon"><img src="https://i.postimg.cc/Z50689sP/IMG-3439.png"></div>
+<div class="name">Passwords</div>
+</a>
+
+<a class="item link" href="https://mail.google.com" target="_blank">
+<div class="icon"><img src="https://i.postimg.cc/c4L3WgSz/IMG-3440.png"></div>
+<div class="name">Gmail</div>
+</a>
+
+<!-- QUICK -->
+<a class="item link" href="https://news.google.com" target="_blank">
+<div class="icon"><img src="https://i.postimg.cc/wTZtLwC6/IMG-3433.png"></div>
+<div class="name">News</div>
+</a>
+
+<a class="item link" href="https://weather.com" target="_blank">
+<div class="icon"><img src="https://i.postimg.cc/cL7sCT0Z/IMG-3446.png"></div>
+<div class="name">Weather</div>
+</a>
+
+</div>
+
+<script>
+
+function search(e){
+    e.preventDefault();
+    const v = document.getElementById("q").value;
+    if(v){
+        window.open("https://www.google.com/search?q=" + encodeURIComponent(v));
+    }
+}
+
+function updateTime(){
+    const now = new Date();
+
+    let h = now.getHours();
+    let m = now.getMinutes();
+    let s = now.getSeconds();
+
+    const ampm = h >= 12 ? "PM" : "AM";
+    h = h % 12 || 12;
+
+    m = m < 10 ? "0" + m : m;
+    s = s < 10 ? "0" + s : s;
+
+    document.getElementById("time").innerText =
+    `${h}:${m}:${s} ${ampm}`;
+}
+
+updateTime();
+setInterval(updateTime,1000);
+
+</script>
+
+</body>
+</html>
